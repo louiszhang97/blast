@@ -24,7 +24,8 @@ class MembersController < ApplicationController
   # POST /members
   # POST /members.json
   def create
-    @member = Member.new(member_params)
+    temp = params.require(:member)
+    @member = Member.new(:name => temp[:name], :phone => "+1" + temp[:phone])
     respond_to do |format|
       if @member.save
         format.html { redirect_to @member, notice: 'Member was successfully created.' }
@@ -59,6 +60,8 @@ class MembersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

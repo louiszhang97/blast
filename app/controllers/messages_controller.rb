@@ -25,10 +25,11 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     temp = params.require(:message)
-    @message = Message.new(:date => Time.now.inspect, :content => temp[:content], :sender_id => temp[:sender_id])
-    puts params[:content]
+    date = String(Time.now.inspect)[0..18] #trims/formats the Time 
+    @message = Message.new(:date => date, :content => temp[:content], :sender_id => temp[:sender_id])
     respond_to do |format|
       if @message.save
+        send_message_to_all(temp[:sender_id], temp[:content], date)
         format.html { redirect_to @message, notice: 'Message was successfully created.' }
         format.json { render :show, status: :created, location: @message }
       else
@@ -36,6 +37,18 @@ class MessagesController < ApplicationController
         format.json { render json: @message.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def send_message_to_all(sender, text, date)
+    load 'account_info.rb'
+    @client = Twilio::REST::Client.new $account_sid, $auth_token
+    Member.all.each do |member|
+      @client.account.messages.create({
+        :from => '+15102414092',
+        :to => member.phone, 
+        :body => "-DO NOT REPLY-\n" + "From" + sender + ":\n" + text + "\n" + date
+      })
+    end 
   end
 
   # PATCH/PUT /messages/1
