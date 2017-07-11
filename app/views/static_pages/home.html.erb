@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all',
+                                              'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      </script>
+    <![endif]-->
+  </head>
+  <body>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <%= link_to "Lambdatime", '#', id: "logo" %>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li> <a href = "/static_pages/home"> Home</a> </li>
+            <li> <a href = "/members"> Members </a> </li>
+            <li><a href = "/messages"> Messages </a> </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <div class="center jumbotron">
+  		<h1>Welcome to the LambdaTime nigga</h1>
+		  <a class= "btn btn-lg btn-primary"  href = "/messages/new"> New Message </a>
+	</div>
+
+	<%= link_to image_tag("crest.png", alt: "Rails logo"),
+            'http://rubyonrails.org/' %>
+</body>
+</html>

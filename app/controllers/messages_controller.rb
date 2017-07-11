@@ -24,8 +24,9 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
-    @message = Message.new(message_params)
-
+    temp = params.require(:message)
+    @message = Message.new(:date => Time.now.inspect, :content => temp[:content], :sender_id => temp[:sender_id])
+    puts params[:content]
     respond_to do |format|
       if @message.save
         format.html { redirect_to @message, notice: 'Message was successfully created.' }
