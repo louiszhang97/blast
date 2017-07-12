@@ -46,7 +46,7 @@ class MessagesController < ApplicationController
       @client.account.messages.create({
         :from => '+15102414092',
         :to => member.phone, 
-        :body => "-DO NOT REPLY-\n" + "From" + sender + ":\n" + text + "\n" + date
+        :body => "-DO NOT REPLY-\n" + "From " + sender + ":\n" + text + "\n" + date
       })
     end 
   end
