@@ -1,4 +1,4 @@
-# Welcome to LambdaTime!
+# Welcome to Blast!
 This is an app I created for my fraternity to blast-text the entire house in cases where third-party messaging apps might not be checked quickly enough. It's developed with Ruby on Rails and Twilio's REST API, with layouts from the Bootstrap front-end framework that websites like Twitter utilizes.
 
 To get started, you must have: 
