@@ -1,7 +1,6 @@
 class MembersController < ApplicationController
-  before_action :set_member, only: [:show, :edit, :update, :destroy]
-
-  # GET /members
+  include SessionsHelper
+  before_action :set_member, :check_expire, only: [:show, :edit, :update, :destroy]
   # GET /members.json
   def index
     @members = Member.all

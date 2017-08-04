@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
-  before_action :set_message, only: [:show, :edit, :update, :destroy]
+  include SessionsHelper
+  before_action :set_message, :check_expire, only: [:show, :edit, :update, :destroy]
 
   # GET /messages
   # GET /messages.json
@@ -44,7 +45,7 @@ class MessagesController < ApplicationController
     @client = Twilio::REST::Client.new $account_sid, $auth_token
     Member.all.each do |member|
       @client.account.messages.create({
-        :from => '+15102414092',
+        :from => $phone_num,
         :to => member.phone, 
         :body => "-DO NOT REPLY-\n" + "From " + sender + ":\n" + text + "\n" + date
       })
