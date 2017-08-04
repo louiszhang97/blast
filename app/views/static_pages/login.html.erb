@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all',
+                                              'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      </script>
+    <![endif]-->
+  </head>
+  <body>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <%= link_to "Blast", '#', id: "logo" %>
+        <nav>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <div class="center jumbotron">
+  		<h1>Welcome to Blast</h1>
+      <h2> An easier way to notify your house in times of urgency </h2>
+		  <p> Enter your access key: </p> 
+	  </div>
+    <!-- <div class = "letters"> 
+      <img src = <%= image_url("letters.png")%> class = "imgCenter">
+      <img src = <%= image_url("crest.jpg")%> class = "imgCenter">  
+    </div>
+    <h3 class = "delta"> Delta Chapter est. 1988 </h3> -->
+</body>
+</html>
