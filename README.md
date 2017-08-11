@@ -6,12 +6,12 @@ To get started, you must have:
 2. Rails installed (I'm running 5.1.2)
 3. An active Twilio account/phone number that can send SMS messages
 
-#Getting Started:
+# Getting Started:
 1. In blast/account_info.rb, fill in your Twilio account credentials 
 2. Enter the rails console using the command "rails console" 
 3. Run 'rake db:setup'
 4. Generate your organization's login key using "Key.create :key => 'YOUR KEY HERE.'" Note: Make sure you only have one key created. 
-5. Feel free to change the layout of the views
+5. Feel free to change the layout of the views! The site isn't very pretty due to my lack of front-end design experience. 
 
 # Video Tutorial
 Coming soon! 
