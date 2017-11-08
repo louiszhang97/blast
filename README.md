@@ -17,7 +17,7 @@ rake db:setup
 ```ruby
 Key.create :key => 'YOUR KEY HERE.'
 ``` 
-Note: Make sure you only have one key created. 
+  Note: Make sure you only have one key created. 
 
 4. Feel free to change the layout of the views! The site isn't very pretty due to my lack of front-end design experience. 
 
