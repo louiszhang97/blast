@@ -13,13 +13,10 @@ To get started, you must have:
 rails console
 rake db:setup
 ```
-3. Generate your organization's login key: 
+3. Generate your organization's login key (Be sure to only have one key generated): 
 ```ruby
 Key.create :key => 'YOUR KEY HERE.'
 ``` 
-
-Note: Make sure you only have one key created. 
-
 4. Feel free to change the layout of the views! The site isn't very pretty due to my lack of front-end design experience. 
 
 # Video Tutorial
